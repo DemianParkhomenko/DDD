@@ -8,7 +8,7 @@ module.exports = {
   },
   api: {
     port: 8001,
-    transport: 'ws',
+    transport: 'http',
   },
   static: {
     port: 8000,
