@@ -14,7 +14,7 @@ module.exports = {
   static: {
     port: 8000,
   },
-  vm: {
+  load: {
     timeout: 5000,
     displayErrors: false,
   },

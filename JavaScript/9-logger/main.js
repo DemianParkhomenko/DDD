@@ -5,8 +5,8 @@ const path = require('node:path');
 const config = require('./config.js');
 const server = require(`./transport/${config.api.transport}.js`);
 const staticServer = require('./static.js');
-const load = require('./load.js');
-const db = require('./db.js');
+const load = require('./load.js')(config.load);
+const db = require('./db.js')(config.db);
 const hash = require('./hash.js');
 const logger = require('./logger.js');
 
