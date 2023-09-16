@@ -1,13 +1,7 @@
 'use strict';
 
 const http = require('node:http');
-
-const headers = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
-  'Access-Control-Max-Age': 600,
-};
+const { HEADERS } = require('./const.js');
 
 const parseBody = async (req) => {
   const buffer = [];
@@ -20,7 +14,7 @@ const parseBody = async (req) => {
 module.exports = (routing, port) => {
   http
     .createServer(async (req, res) => {
-      res.writeHead(200, headers);
+      res.writeHead(200, HEADERS);
       if (req.method !== 'POST') return void res.end('"Not found"');
       const { url, socket } = req;
       const [name, method] = url.substring(1).split('/');
@@ -34,5 +28,6 @@ module.exports = (routing, port) => {
       res.end(JSON.stringify(result.rows));
     })
     .listen(port);
-  console.log(`API on port ${port}`);
+
+  console.log(`API on http://localhost:${port}`);
 };

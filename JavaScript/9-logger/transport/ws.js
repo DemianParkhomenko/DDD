@@ -1,6 +1,6 @@
 'use strict';
 
-const console = require('./logger.js');
+const console = require('../logger.js');
 const { Server } = require('ws');
 
 module.exports = (routing, port) => {
@@ -34,5 +34,5 @@ module.exports = (routing, port) => {
     });
   });
 
-  console.log(`API on port ${port}`);
+  console.log(`API on ws://localhost:${port}`);
 };
