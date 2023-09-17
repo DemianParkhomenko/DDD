@@ -2,7 +2,7 @@
 
 //? move to config
 //? FE usage
-const url = new URL('http://localhost:8001');
+const url = new URL('ws://localhost:8001');
 const structure = {
   user: {
     create: ['record'],
@@ -52,7 +52,7 @@ const createRequest = (url) => {
   throw new Error(`Invalid protocol ${url.protocol}`);
 };
 
-const scaffold = (url) => (structure) => {
+const scaffold = (url, structure) => {
   const api = {};
   const services = Object.keys(structure);
   const request = createRequest(url);
@@ -68,4 +68,4 @@ const scaffold = (url) => (structure) => {
   return api;
 };
 
-const api = scaffold(url)(structure);
+const api = scaffold(url, structure);

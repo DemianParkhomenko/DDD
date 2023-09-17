@@ -5,7 +5,6 @@ module.exports = ({ db, console }) => {
     ...country,
 
     async read(id) {
-      console.log('this is db', { db });
       return await country.read(id);
     },
 
