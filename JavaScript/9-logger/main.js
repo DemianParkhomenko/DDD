@@ -7,12 +7,13 @@ const server = require(`./transport/${config.api.transport}.js`);
 const staticServer = require('./static.js');
 const db = require('./db.js')(config.db);
 const hash = require('./hash.js');
-const logger = require('./logger.js');
+const logger = require(`./logger/${config.logger.name}.js`);
+const console = logger(config.logger);
 
 const injection = {
-  console: Object.freeze(logger),
+  console: Object.freeze(console),
   db: Object.freeze(db),
-  common: { hash }, //? why there is no Object.freeze
+  common: Object.freeze({ hash }),
 };
 const apiPath = path.join(process.cwd(), './api');
 const routing = {};
@@ -25,6 +26,6 @@ const routing = {};
     const serviceName = path.basename(fileName, '.js');
     routing[serviceName] = require(filePath)(injection);
   }
-  staticServer('./static', config.static.port);
-  server(routing, config.api.port);
+  staticServer('./static', config.static.port, console);
+  server(routing, config.api.port, console);
 })();

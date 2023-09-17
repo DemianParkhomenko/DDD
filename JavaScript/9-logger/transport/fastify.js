@@ -23,7 +23,7 @@ const setup = async (routing) => {
   }
 };
 
-const start = async (port) => {
+const start = async (port, console) => {
   try {
     await fastify.listen({ port });
   } catch (err) {
@@ -33,8 +33,8 @@ const start = async (port) => {
   console.log(`Fastify API on http://localhost:${port}`);
 };
 
-module.exports = async (routing, port) => {
+module.exports = async (routing, port, console) => {
   await fastify.register(cors, HEADERS);
   await setup(routing);
-  await start(port);
+  await start(port, console);
 };

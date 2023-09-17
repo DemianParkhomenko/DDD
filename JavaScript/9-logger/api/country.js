@@ -1,11 +1,11 @@
-module.exports = ({ db }) => {
+module.exports = ({ db, console }) => {
   const country = db('country');
 
   return {
     ...country,
 
     async read(id) {
-      console.log({ db });
+      console.log('this is db', { db });
       return await country.read(id);
     },
 

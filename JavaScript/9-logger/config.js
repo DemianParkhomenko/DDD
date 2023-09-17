@@ -9,7 +9,7 @@ module.exports = {
   },
   api: {
     port: 8001,
-    transport: 'http',
+    transport: 'ws',
   },
   static: {
     port: 8000,
@@ -18,4 +18,5 @@ module.exports = {
     timeout: 5000,
     displayErrors: false,
   },
+  logger: { name: 'pino', fsPath: './log', console: true },
 };

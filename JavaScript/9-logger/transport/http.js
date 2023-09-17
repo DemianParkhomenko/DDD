@@ -11,7 +11,7 @@ const parseBody = async (req) => {
 };
 
 //? Why do we need to read signatures
-module.exports = (routing, port) => {
+module.exports = (routing, port, console) => {
   http
     .createServer(async (req, res) => {
       res.writeHead(200, HEADERS);
