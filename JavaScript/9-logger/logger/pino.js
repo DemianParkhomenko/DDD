@@ -13,7 +13,7 @@ module.exports = (config) => {
       level: 'trace',
       target: 'pino/file',
       options: {
-        destination: `${config.fsPath}/pino/combined.log`,
+        destination: `${config.fsPath}/${config.name}/combined.log`,
       },
     });
   }
@@ -25,16 +25,16 @@ module.exports = (config) => {
   return {
     log(...args) {
       // TODO: issue https://github.com/pinojs/pino-pretty/issues/455
-      logger.info(args);
+      logger.info(...args);
     },
     info(...args) {
-      logger.info(args);
+      logger.info(...args);
     },
     warn(...args) {
-      logger.warn(args);
+      logger.warn(...args);
     },
     error(...args) {
-      logger.error(args);
+      logger.error(...args);
     },
   };
 };

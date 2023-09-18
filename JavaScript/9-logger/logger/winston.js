@@ -15,7 +15,7 @@ module.exports = (config) => {
   if (config.fsPath) {
     transports.push(
       new winston.transports.File({
-        filename: `${config.fsPath}/winston/combined.log`,
+        filename: `${config.fsPath}/${config.name}/combined.log`,
       })
     );
   }
