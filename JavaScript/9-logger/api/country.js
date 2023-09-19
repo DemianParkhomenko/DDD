@@ -2,8 +2,6 @@ module.exports = ({ db, console }) => {
   const country = db('country');
 
   return {
-    ...country,
-
     async read(id) {
       return await country.read(id);
     },
@@ -14,5 +12,3 @@ module.exports = ({ db, console }) => {
     },
   };
 };
-
-//? Why in the initial example there is no ...country?

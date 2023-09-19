@@ -1,6 +1,6 @@
 module.exports = {
   db: {
-    //? url vs params
+    //? secrets here or new pg.Pool(config)
     host: '127.0.0.1',
     port: 5432,
     database: 'example',
