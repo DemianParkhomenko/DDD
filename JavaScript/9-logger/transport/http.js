@@ -10,7 +10,6 @@ const parseBody = async (req) => {
   return JSON.parse(data);
 };
 
-//? Why do we need to read signatures
 module.exports = (routing, port, console) => {
   http
     .createServer(async (req, res) => {
